@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/auth_background"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include android:id="@+id/toolbar"
+        layout="@layout/toolbar_fragment" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="40dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/first_name_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="#ffffff"
+                    app:boxBackgroundColor="@color/transparent"
+                    app:errorEnabled="true"
+                    app:errorTextColor="@color/red"
+                    app:hintTextColor="#ffffff"
+                    app:passwordToggleEnabled="false"
+                    app:startIconTint="#ffffff">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/first_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/et_line"
+                        android:drawablePadding="10dp"
+                        android:fontFamily="@font/gotham_book"
+                        android:hint="First name"
+                        android:inputType="textEmailAddress"
+                        android:singleLine="true"
+                        android:textColor="#ffffff"
+                        android:textSize="16sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/last_name_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:textColorHint="#ffffff"
+                    app:boxBackgroundColor="@color/transparent"
+                    app:errorEnabled="true"
+                    app:errorTextColor="@color/red"
+                    app:hintTextColor="#ffffff"
+                    app:startIconTint="#ffffff">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/last_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/et_line"
+                        android:drawablePadding="10dp"
+                        android:fontFamily="@font/gotham_book"
+                        android:hint="Last name"
+                        android:inputType="textEmailAddress"
+                        android:singleLine="true"
+                        android:textColor="#ffffff"
+                        android:textSize="16sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/phone_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textColorHint="#ffffff"
+                    app:boxBackgroundColor="@color/transparent"
+                    app:errorEnabled="true"
+                    app:errorTextColor="@color/red"
+                    app:hintTextColor="#ffffff"
+                    app:startIconTint="#ffffff">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/et_line"
+                        android:drawablePadding="10dp"
+                        android:fontFamily="@font/gotham_book"
+                        android:hint="Phone"
+                        android:inputType="textEmailAddress"
+                        android:singleLine="true"
+                        android:textColor="#ffffff"
+                        android:textSize="16sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/email_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:textColorHint="#ffffff"
+                    app:boxBackgroundColor="@color/transparent"
+                    app:errorEnabled="true"
+                    app:errorTextColor="@color/red"
+                    app:hintTextColor="#ffffff"
+                    app:startIconTint="#ffffff">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/email"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/et_line"
+                        android:drawablePadding="10dp"
+                        android:fontFamily="@font/gotham_book"
+                        android:hint="Email"
+                        android:inputType="textEmailAddress"
+                        android:singleLine="true"
+                        android:textColor="#ffffff"
+                        android:textSize="16sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/password_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:textColorHint="#ffffff"
+                    app:boxBackgroundColor="@color/transparent"
+                    app:errorEnabled="true"
+                    app:errorTextColor="@color/red"
+                    app:hintTextColor="#ffffff"
+                    app:passwordToggleEnabled="false"
+                    app:startIconTint="#ffffff">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/password"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/et_line"
+                        android:drawablePadding="10dp"
+                        android:fontFamily="@font/gotham_book"
+                        android:hint="Password"
+                        android:inputType="textEmailAddress"
+                        android:singleLine="true"
+                        android:textColor="#ffffff"
+                        android:textSize="16sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/confirm_password_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:textColorHint="#ffffff"
+                    app:boxBackgroundColor="@color/transparent"
+                    app:errorEnabled="true"
+                    app:errorTextColor="@color/red"
+                    app:hintTextColor="#ffffff"
+                    app:startIconTint="#ffffff">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/confirm_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/et_line"
+                        android:drawablePadding="10dp"
+                        android:fontFamily="@font/gotham_book"
+                        android:hint="Confirm Password"
+                        android:inputType="textEmailAddress"
+                        android:singleLine="true"
+                        android:textColor="#ffffff"
+                        android:textSize="16sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/gotham_book"
+                    android:text="By signing in, I have read and agreed to the"
+                    android:textAlignment="center"
+                    android:textColor="@color/light"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/gotham_bold"
+                        android:text="Terms and conditions"
+                        android:textAlignment="center"
+                        android:textColor="#ffffff"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginRight="5dp"
+                        android:fontFamily="@font/gotham_book"
+                        android:text="and"
+                        android:textAlignment="center"
+                        android:textColor="@color/light"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/gotham_bold"
+                        android:text="Privacy Policy"
+                        android:textAlignment="center"
+                        android:textColor="#ffffff"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btn_register"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="60dp"
+                    android:layout_marginBottom="70dp"
+                    android:background="@drawable/ripple_success"
+                    android:fontFamily="@font/gotham_bold"
+                    android:text="Next"
+                    android:textAllCaps="false"
+                    android:textColor="#ffffff"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
+
+</LinearLayout>

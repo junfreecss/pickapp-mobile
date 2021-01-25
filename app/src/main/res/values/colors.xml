@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#159abf</color>
+    <color name="colorPrimaryDark">#159abf</color>
+    <color name="colorAccent">#2acbf7</color>
+    <color name="primaryDark">#1e839e</color>
+    <color name="auth_blur">#B0000000</color>
+    <color name="light">#F0EFEF</color>
+    <color name="transparent">#00000000</color>
+    <color name="black">#000000</color>
+    <color name="darkGray">#FD3C3F41</color>
+    <color name="gray">#727170</color>
+    <color name="blur_black">#D8000000</color>
+    <color name="red">#A30707</color>
+</resources>
