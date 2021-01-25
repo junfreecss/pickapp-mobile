@@ -12,4 +12,6 @@
     <color name="gray">#727170</color>
     <color name="blur_black">#D8000000</color>
     <color name="red">#A30707</color>
+    <color name="lightGray">#ADADAC</color>
+    <color name="dark">#4B4A49</color>
 </resources>

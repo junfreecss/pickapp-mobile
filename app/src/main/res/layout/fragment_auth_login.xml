@@ -5,7 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/auth_background"
     android:orientation="vertical"
     android:fitsSystemWindows="true">
 
@@ -29,23 +28,26 @@
                 android:id="@+id/email_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="100dp"
-                android:textColorHint="#ffffff"
+                android:layout_marginTop="150dp"
                 app:boxBackgroundColor="@color/transparent"
-                app:hintTextColor="#ffffff"
+                app:errorEnabled="true"
+                app:errorTextColor="@color/red"
+                app:hintTextColor="@color/darkGray"
                 app:startIconTint="#ffffff">
 
-                <com.pickapp.ui.widget.TextEdit
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/email"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@drawable/et_line"
                     android:drawableLeft="@drawable/email_24_white"
                     android:drawablePadding="10dp"
                     android:fontFamily="@font/gotham_book"
                     android:hint="Email"
                     android:inputType="textEmailAddress"
                     android:singleLine="true"
-                    android:textColor="#ffffff"
+                    android:textColor="@color/darkGray"
+                    android:textColorHint="@color/darkGray"
                     android:textSize="16sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -54,34 +56,38 @@
                 android:id="@+id/password_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:textColorHint="#ffffff"
+                android:layout_marginTop="20dp"
                 app:boxBackgroundColor="@color/transparent"
-                app:hintTextColor="#ffffff"
+                app:errorEnabled="true"
+                app:errorTextColor="@color/red"
+                app:hintTextColor="@color/darkGray"
                 app:startIconTint="#ffffff">
 
-                <com.pickapp.ui.widget.TextEdit
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/password"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@drawable/et_line"
                     android:drawableLeft="@drawable/lock_24_white"
                     android:drawablePadding="10dp"
                     android:fontFamily="@font/gotham_book"
                     android:hint="Password"
-                    android:inputType="textPassword"
+                    android:inputType="textEmailAddress"
                     android:singleLine="true"
-                    android:textColor="#ffffff"
+                    android:textColor="@color/darkGray"
+                    android:textColorHint="@color/darkGray"
                     android:textSize="16sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:id="@+id/reset_password"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/gotham_bold"
                 android:text="Forgot password?"
+                android:textAlignment="center"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="16sp" />
 
@@ -108,7 +114,7 @@
                 android:fontFamily="@font/gotham_bold"
                 android:gravity="center_horizontal"
                 android:text="or"
-                android:textColor="#ffffff"
+                android:textColor="@color/darkGray"
                 android:textSize="20sp" />
 
             <Button

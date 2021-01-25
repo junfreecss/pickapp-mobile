@@ -9,7 +9,6 @@ import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,11 +18,13 @@ import androidx.lifecycle.ViewModelProvider;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.pickapp.app.PickApp;
+import com.pickapp.data.remote.model.Data;
 import com.pickapp.data.remote.model.User;
 import com.pickapp.databinding.FragmentAuthRegisterBinding;
+import com.pickapp.ui.util.Helper;
+import com.pickapp.ui.util.ResultObserver;
 import com.pickapp.ui.viewmodel.AuthVMFactory;
-
-import java.util.regex.Pattern;
+import com.pickapp.util.Logger;
 
 import javax.inject.Inject;
 
@@ -47,8 +48,28 @@ public class RegisterFragment extends Fragment {
         binding.toolbar.title.setText("Register");
 
         initForm();
+        setVmObserver();
 
         return binding.getRoot();
+    }
+
+    private void setVmObserver() {
+        authVM.getResponseData().observe(getViewLifecycleOwner(), result -> {
+            new ResultObserver(result) {
+                @Override
+                public void onSuccess(Data data) {
+                    Logger.V(data);
+                }
+
+                @Override
+                public void onError(Throwable throwable) {
+                    Logger.V(throwable);
+                }
+            };
+
+            clearForm();
+            enabledRegistrationForm(true);
+        });
     }
 
     private void initForm() {
@@ -61,16 +82,24 @@ public class RegisterFragment extends Fragment {
 
         binding.btnRegister.setOnClickListener(v -> {
             if (validateForm()) {
-
+                User user = new User();
+                user.setFirstName(binding.firstName.getText().toString());
+                user.setLastName(binding.firstName.getText().toString());
+                user.setPhone(binding.phone.getText().toString());
+                user.setEmail(binding.email.getText().toString());
+                user.setPassword(binding.password.getText().toString());
+                enabledRegistrationForm(false);
+                authVM.register(user);
             }
         });
 
-        binding.toolbar.btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getActivity().onBackPressed();
-            }
-        });
+        binding.toolbar.btnBack.setOnClickListener(v -> getActivity().onBackPressed());
+    }
+
+    private void enabledRegistrationForm(boolean enabled) {
+        Helper.enableView(binding.parent, enabled);
+        binding.btnRegister.setEnabled(enabled);
+        binding.progress.setVisibility(enabled ? View.GONE : View.VISIBLE);
     }
 
     private void addTextWatcher(TextInputEditText editText, TextInputLayout editTextLayout) {
@@ -92,6 +121,15 @@ public class RegisterFragment extends Fragment {
         });
     }
 
+    private void clearForm() {
+        binding.firstName.getText().clear();
+        binding.lastName.getText().clear();
+        binding.phone.getText().clear();
+        binding.email.getText().clear();
+        binding.password.getText().clear();
+        binding.confirmPassword.getText().clear();
+    }
+
     private boolean validateForm() {
         boolean noError = true;
 
@@ -105,22 +143,22 @@ public class RegisterFragment extends Fragment {
             noError = false;
         }
 
-        if (PhoneNumberUtils.isGlobalPhoneNumber(binding.phone.getText().toString()) || binding.phone.getText().toString().trim().equals("")) {
+        if (!PhoneNumberUtils.isGlobalPhoneNumber(binding.phone.getText().toString()) || binding.phone.getText().toString().trim().equals("")) {
             binding.phoneLayout.setError("Invalid phone number.");
             noError = false;
         }
 
-        if (TextUtils.isEmpty(binding.email.getText()) || Patterns.EMAIL_ADDRESS.matcher(binding.email.getText()).matches()) {
+        if (TextUtils.isEmpty(binding.email.getText()) || !Patterns.EMAIL_ADDRESS.matcher(binding.email.getText()).matches()) {
             binding.emailLayout.setError("Invalid email address.");
             noError = false;
         }
 
-        if (TextUtils.isEmpty(binding.password.getText()) || binding.password.length() < 8) {
+        if (TextUtils.isEmpty(binding.password.getText()) || binding.password.length() < 6) {
             binding.passwordLayout.setError("Password must be at least 6 characters.");
             noError = false;
         }
 
-        if (TextUtils.isEmpty(binding.confirmPassword.getText()) || binding.confirmPassword.getText().equals(binding.confirmPassword.getText())) {
+        if (TextUtils.isEmpty(binding.confirmPassword.getText()) || !binding.password.getText().toString().equals(binding.confirmPassword.getText().toString())) {
             binding.confirmPasswordLayout.setError("Please confirm password.");
             noError = false;
         }

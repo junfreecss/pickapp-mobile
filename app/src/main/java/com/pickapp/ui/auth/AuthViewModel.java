@@ -2,12 +2,15 @@ package com.pickapp.ui.auth;
 
 import android.util.Log;
 
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.pickapp.data.remote.model.Data;
 import com.pickapp.data.remote.model.User;
 import com.pickapp.interactor.LoginUseCase;
 import com.pickapp.interactor.RegisterUseCase;
+import com.pickapp.ui.Result;
 
 import io.reactivex.rxjava3.annotations.NonNull;
 import io.reactivex.rxjava3.observers.DisposableObserver;
@@ -16,12 +19,16 @@ public class AuthViewModel extends ViewModel {
 
     private RegisterUseCase registerUseCase;
     private LoginUseCase loginUseCase;
-    private User user;
+
+    private MutableLiveData<Result> responseData = new MutableLiveData<>();
 
     public AuthViewModel(RegisterUseCase registerUseCase, LoginUseCase loginUseCase) {
         this.registerUseCase = registerUseCase;
         this.loginUseCase = loginUseCase;
-        user = new User();
+    }
+
+    public LiveData<Result> getResponseData() {
+        return responseData;
     }
 
     public void register(User user) {
@@ -29,18 +36,16 @@ public class AuthViewModel extends ViewModel {
         registerUseCase.execute(new DisposableObserver<Data>() {
             @Override
             public void onNext(@NonNull Data data) {
-                Log.d("ddd", data.toString());
+                responseData.setValue(new Result.Success<>(data));
             }
 
             @Override
             public void onError(@NonNull Throwable e) {
-                Log.e("ddd", e.getMessage());
+                responseData.setValue(new Result.Error(e));
             }
 
             @Override
-            public void onComplete() {
-                Log.e("ddd", "onComplete");
-            }
+            public void onComplete() {}
         }, user);
     }
 

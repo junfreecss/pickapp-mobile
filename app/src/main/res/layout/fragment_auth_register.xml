@@ -4,7 +4,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/auth_background"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
@@ -14,7 +13,9 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <ScrollView
+            android:id="@+id/parent"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fillViewport="true"
@@ -30,11 +31,11 @@
                     android:id="@+id/first_name_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColorHint="#ffffff"
+                    android:textColorHint="@color/darkGray"
                     app:boxBackgroundColor="@color/transparent"
                     app:errorEnabled="true"
                     app:errorTextColor="@color/red"
-                    app:hintTextColor="#ffffff"
+                    app:hintTextColor="@color/gray"
                     app:passwordToggleEnabled="false"
                     app:startIconTint="#ffffff">
 
@@ -48,7 +49,8 @@
                         android:hint="First name"
                         android:inputType="textEmailAddress"
                         android:singleLine="true"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/darkGray"
+                        android:textColorHint="@color/gray"
                         android:textSize="16sp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -58,11 +60,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:textColorHint="#ffffff"
+                    android:textColorHint="@color/darkGray"
                     app:boxBackgroundColor="@color/transparent"
                     app:errorEnabled="true"
                     app:errorTextColor="@color/red"
-                    app:hintTextColor="#ffffff"
+                    app:hintTextColor="@color/gray"
                     app:startIconTint="#ffffff">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -75,7 +77,8 @@
                         android:hint="Last name"
                         android:inputType="textEmailAddress"
                         android:singleLine="true"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/darkGray"
+                        android:textColorHint="@color/gray"
                         android:textSize="16sp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -85,11 +88,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:textColorHint="#ffffff"
+                    android:textColorHint="@color/darkGray"
                     app:boxBackgroundColor="@color/transparent"
                     app:errorEnabled="true"
                     app:errorTextColor="@color/red"
-                    app:hintTextColor="#ffffff"
+                    app:hintTextColor="@color/gray"
                     app:startIconTint="#ffffff">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -102,7 +105,8 @@
                         android:hint="Phone"
                         android:inputType="textEmailAddress"
                         android:singleLine="true"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/darkGray"
+                        android:textColorHint="@color/gray"
                         android:textSize="16sp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -112,11 +116,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:textColorHint="#ffffff"
+                    android:textColorHint="@color/darkGray"
                     app:boxBackgroundColor="@color/transparent"
                     app:errorEnabled="true"
                     app:errorTextColor="@color/red"
-                    app:hintTextColor="#ffffff"
+                    app:hintTextColor="@color/gray"
                     app:startIconTint="#ffffff">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -129,7 +133,8 @@
                         android:hint="Email"
                         android:inputType="textEmailAddress"
                         android:singleLine="true"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/darkGray"
+                        android:textColorHint="@color/gray"
                         android:textSize="16sp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -139,11 +144,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:textColorHint="#ffffff"
+                    android:textColorHint="@color/darkGray"
                     app:boxBackgroundColor="@color/transparent"
                     app:errorEnabled="true"
                     app:errorTextColor="@color/red"
-                    app:hintTextColor="#ffffff"
+                    app:hintTextColor="@color/gray"
                     app:passwordToggleEnabled="false"
                     app:startIconTint="#ffffff">
 
@@ -157,7 +162,8 @@
                         android:hint="Password"
                         android:inputType="textEmailAddress"
                         android:singleLine="true"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/darkGray"
+                        android:textColorHint="@color/gray"
                         android:textSize="16sp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -167,11 +173,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:textColorHint="#ffffff"
+                    android:textColorHint="@color/darkGray"
                     app:boxBackgroundColor="@color/transparent"
                     app:errorEnabled="true"
                     app:errorTextColor="@color/red"
-                    app:hintTextColor="#ffffff"
+                    app:hintTextColor="@color/gray"
                     app:startIconTint="#ffffff">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -184,7 +190,8 @@
                         android:hint="Confirm Password"
                         android:inputType="textEmailAddress"
                         android:singleLine="true"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/darkGray"
+                        android:textColorHint="@color/gray"
                         android:textSize="16sp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -196,7 +203,7 @@
                     android:fontFamily="@font/gotham_book"
                     android:text="By signing in, I have read and agreed to the"
                     android:textAlignment="center"
-                    android:textColor="@color/light"
+                    android:textColor="@color/dark"
                     android:textSize="14sp" />
 
                 <LinearLayout
@@ -211,7 +218,7 @@
                         android:fontFamily="@font/gotham_bold"
                         android:text="Terms and conditions"
                         android:textAlignment="center"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/darkGray"
                         android:textSize="14sp" />
 
                     <TextView
@@ -224,7 +231,7 @@
                         android:fontFamily="@font/gotham_book"
                         android:text="and"
                         android:textAlignment="center"
-                        android:textColor="@color/light"
+                        android:textColor="@color/dark"
                         android:textSize="14sp" />
 
                     <TextView
@@ -233,7 +240,7 @@
                         android:fontFamily="@font/gotham_bold"
                         android:text="Privacy Policy"
                         android:textAlignment="center"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/darkGray"
                         android:textSize="14sp" />
                 </LinearLayout>
 
@@ -246,7 +253,7 @@
                     android:layout_marginBottom="70dp"
                     android:background="@drawable/ripple_success"
                     android:fontFamily="@font/gotham_bold"
-                    android:text="Next"
+                    android:text="Register"
                     android:textAllCaps="false"
                     android:textColor="#ffffff"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -258,9 +265,11 @@
         </ScrollView>
 
         <ProgressBar
+            android:id="@+id/progress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true" />
+            android:layout_centerInParent="true"
+            android:visibility="gone" />
     </RelativeLayout>
 
 </LinearLayout>

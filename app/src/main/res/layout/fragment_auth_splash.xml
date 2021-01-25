@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/auth_background"
+    android:background="#ffffff"
     android:fitsSystemWindows="true"
     android:gravity="center">
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:background="@mipmap/ic_launcher_round" />
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/pickapp" />
 
 </LinearLayout>
