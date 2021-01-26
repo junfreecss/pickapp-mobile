@@ -11,128 +11,140 @@
     <include android:id="@+id/toolbar"
         layout="@layout/toolbar_fragment" />
 
-    <ScrollView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:fillViewport="true"
-        android:scrollbars="none">
-
-        <LinearLayout
+        android:layout_height="match_parent">
+        <ScrollView
+            android:id="@+id/parent"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:fillViewport="true"
             android:orientation="vertical"
-            android:padding="40dp">
+            android:scrollbars="none">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/email_layout"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="150dp"
-                app:boxBackgroundColor="@color/transparent"
-                app:errorEnabled="true"
-                app:errorTextColor="@color/red"
-                app:hintTextColor="@color/darkGray"
-                app:startIconTint="#ffffff">
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="40dp">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/email"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/email_layout"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/et_line"
-                    android:drawableLeft="@drawable/email_24_white"
-                    android:drawablePadding="10dp"
-                    android:fontFamily="@font/gotham_book"
-                    android:hint="Email"
-                    android:inputType="textEmailAddress"
-                    android:singleLine="true"
-                    android:textColor="@color/darkGray"
-                    android:textColorHint="@color/darkGray"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="150dp"
+                    app:boxBackgroundColor="@color/transparent"
+                    app:errorEnabled="true"
+                    app:errorTextColor="@color/red"
+                    app:hintTextColor="@color/darkGray"
+                    app:startIconTint="#ffffff">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/email"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/et_line"
+                        android:drawableLeft="@drawable/email_24_white"
+                        android:drawablePadding="10dp"
+                        android:fontFamily="@font/gotham_book"
+                        android:hint="Email"
+                        android:inputType="textEmailAddress"
+                        android:singleLine="true"
+                        android:textColor="@color/darkGray"
+                        android:textColorHint="@color/darkGray"
+                        android:textSize="16sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/password_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    app:boxBackgroundColor="@color/transparent"
+                    app:errorEnabled="true"
+                    app:errorTextColor="@color/red"
+                    app:hintTextColor="@color/darkGray"
+                    app:startIconTint="#ffffff">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/password"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/et_line"
+                        android:drawableLeft="@drawable/lock_24_white"
+                        android:drawablePadding="10dp"
+                        android:fontFamily="@font/gotham_book"
+                        android:hint="Password"
+                        android:inputType="textEmailAddress"
+                        android:singleLine="true"
+                        android:textColor="@color/darkGray"
+                        android:textColorHint="@color/darkGray"
+                        android:textSize="16sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/reset_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/gotham_bold"
+                    android:text="Forgot password?"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="16sp" />
 
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/password_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                app:boxBackgroundColor="@color/transparent"
-                app:errorEnabled="true"
-                app:errorTextColor="@color/red"
-                app:hintTextColor="@color/darkGray"
-                app:startIconTint="#ffffff">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/password"
+                <Button
+                    android:id="@+id/btn_login"
+                    style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/et_line"
-                    android:drawableLeft="@drawable/lock_24_white"
-                    android:drawablePadding="10dp"
-                    android:fontFamily="@font/gotham_book"
-                    android:hint="Password"
-                    android:inputType="textEmailAddress"
-                    android:singleLine="true"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="50dp"
+                    android:background="@drawable/ripple_primary"
+                    android:fontFamily="@font/gotham_bold"
+                    android:text="Login"
+                    android:textAllCaps="false"
+                    android:textColor="#ffffff"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:fontFamily="@font/gotham_bold"
+                    android:gravity="center_horizontal"
+                    android:text="or"
                     android:textColor="@color/darkGray"
-                    android:textColorHint="@color/darkGray"
-                    android:textSize="16sp" />
+                    android:textSize="20sp" />
 
-            </com.google.android.material.textfield.TextInputLayout>
+                <Button
+                    android:id="@+id/btn_register"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:background="@drawable/ripple_success"
+                    android:fontFamily="@font/gotham_bold"
+                    android:text="Create new Account"
+                    android:textAllCaps="false"
+                    android:textColor="#ffffff"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
 
-            <TextView
-                android:id="@+id/reset_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:fontFamily="@font/gotham_bold"
-                android:text="Forgot password?"
-                android:textAlignment="center"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="16sp" />
+            </LinearLayout>
 
-            <Button
-                android:id="@+id/btn_login"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_marginTop="50dp"
-                android:background="@drawable/ripple_primary"
-                android:fontFamily="@font/gotham_bold"
-                android:text="Login"
-                android:textAllCaps="false"
-                android:textColor="#ffffff"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+        </ScrollView>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
-                android:fontFamily="@font/gotham_bold"
-                android:gravity="center_horizontal"
-                android:text="or"
-                android:textColor="@color/darkGray"
-                android:textSize="20sp" />
-
-            <Button
-                android:id="@+id/btn_register"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:background="@drawable/ripple_success"
-                android:fontFamily="@font/gotham_bold"
-                android:text="Create new Account"
-                android:textAllCaps="false"
-                android:textColor="#ffffff"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
-        </LinearLayout>
-
-    </ScrollView>
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone" />
+    </RelativeLayout>
 
 </LinearLayout>

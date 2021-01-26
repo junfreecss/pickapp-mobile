@@ -26,6 +26,8 @@ public class ResetPasswordFragment extends Fragment {
     AuthVMFactory vmFactory;
     private AuthViewModel authVM;
 
+    private boolean isShowingCodeEditText = false;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -36,14 +38,39 @@ public class ResetPasswordFragment extends Fragment {
         binding = FragmentAuthResetPasswordBinding.inflate(inflater, container, false);
         binding.toolbar.title.setText("Reset Password");
 
-        binding.toolbar.btnBack.setOnClickListener(v -> getActivity().onBackPressed());
-
-        binding.btnRegister.setOnClickListener(v -> {
-
+        binding.toolbar.btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isShowingCodeEditText) {
+                    toggleCodeEditText(false);
+                } else {
+                    getActivity().onBackPressed();
+                }
+            }
         });
 
+        binding.btnNext.setOnClickListener(v -> {
+            if (isShowingCodeEditText) {
+                Navigation.findNavController(getActivity(), R.id.auth_host_fragment)
+                    .navigate(R.id.auth_change_password);
+            } else {
+                toggleCodeEditText(true);
+            }
+        });
 
         return binding.getRoot();
+    }
+
+    private void toggleCodeEditText(boolean showCodeEditText) {
+        binding.emailLayout.setVisibility(showCodeEditText ? View.GONE : View.VISIBLE);
+        binding.code.setVisibility(showCodeEditText ? View.VISIBLE : View.GONE);
+        binding.toolbar.title.setText(showCodeEditText ? "Enter Code" : "Reset Password");
+
+        if (!showCodeEditText) {
+            binding.code.setText("");
+        }
+
+        isShowingCodeEditText = showCodeEditText;
     }
 
 }

@@ -6,4 +6,6 @@ public interface IPreferencesSource {
 
     String getString(String key);
 
+    void setObject(String key, Object object);
+
 }

@@ -17,6 +17,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.pickapp.app.Message;
 import com.pickapp.app.PickApp;
 import com.pickapp.data.remote.model.Data;
 import com.pickapp.data.remote.model.User;
@@ -36,13 +37,12 @@ public class RegisterFragment extends Fragment {
     AuthVMFactory authVmFactory;
     private AuthViewModel authVM;
 
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         PickApp.getAppComponent().inject(RegisterFragment.this);
-        authVM = new ViewModelProvider(getActivity(), authVmFactory).get(AuthViewModel.class);
+        authVM = new ViewModelProvider(this, authVmFactory).get(AuthViewModel.class);
 
         binding = FragmentAuthRegisterBinding.inflate(inflater, container, false);
         binding.toolbar.title.setText("Register");
@@ -58,27 +58,36 @@ public class RegisterFragment extends Fragment {
             new ResultObserver(result) {
                 @Override
                 public void onSuccess(Data data) {
-                    Logger.V(data);
+                    clearForm();
+                    Helper.dialogAlert(getContext(), "Registration Success", Message.REGISTER_SUCCESS);
                 }
 
                 @Override
                 public void onError(Throwable throwable) {
-                    Logger.V(throwable);
+                    Logger.V("Register error", throwable);
+
+                    String errMsg = "";
+                    if (throwable.getMessage().contains("Unable to resolve host")) {
+                        errMsg = Message.REGISTER_INTERNET_ERROR;
+                    } else {
+                        errMsg = Message.SOMETHING_WENT_WRONG;
+                    }
+
+                    Helper.dialogAlert(getContext(), "Registration Failed", errMsg);
                 }
             };
 
-            clearForm();
             enabledRegistrationForm(true);
         });
     }
 
     private void initForm() {
-        addTextWatcher(binding.firstName, binding.firstNameLayout);
-        addTextWatcher(binding.lastName, binding.lastNameLayout);
-        addTextWatcher(binding.phone, binding.phoneLayout);
-        addTextWatcher(binding.email, binding.emailLayout);
-        addTextWatcher(binding.password, binding.passwordLayout);
-        addTextWatcher(binding.confirmPassword, binding.confirmPasswordLayout);
+        Helper.addTextWatcher(binding.firstName, binding.firstNameLayout);
+        Helper.addTextWatcher(binding.lastName, binding.lastNameLayout);
+        Helper.addTextWatcher(binding.phone, binding.phoneLayout);
+        Helper.addTextWatcher(binding.email, binding.emailLayout);
+        Helper.addTextWatcher(binding.password, binding.passwordLayout);
+        Helper.addTextWatcher(binding.confirmPassword, binding.confirmPasswordLayout);
 
         binding.btnRegister.setOnClickListener(v -> {
             if (validateForm()) {
@@ -100,25 +109,6 @@ public class RegisterFragment extends Fragment {
         Helper.enableView(binding.parent, enabled);
         binding.btnRegister.setEnabled(enabled);
         binding.progress.setVisibility(enabled ? View.GONE : View.VISIBLE);
-    }
-
-    private void addTextWatcher(TextInputEditText editText, TextInputLayout editTextLayout) {
-        editText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                editTextLayout.setError(null);
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
     }
 
     private void clearForm() {

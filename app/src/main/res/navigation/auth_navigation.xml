@@ -42,4 +42,10 @@
         android:label="Reset Password"
         tools:layout="@layout/fragment_auth_reset_password" />
 
+    <fragment
+        android:id="@+id/auth_change_password"
+        android:name="com.pickapp.ui.auth.ChangePasswordFragment"
+        android:label="Reset Password"
+        tools:layout="@layout/fragment_auth_change_password" />
+
 </navigation>

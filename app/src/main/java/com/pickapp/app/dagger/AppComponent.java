@@ -1,6 +1,8 @@
 package com.pickapp.app.dagger;
 
+import com.pickapp.databinding.FragmentAuthChangePasswordBinding;
 import com.pickapp.ui.auth.AuthActivity;
+import com.pickapp.ui.auth.ChangePasswordFragment;
 import com.pickapp.ui.auth.LoginFragment;
 import com.pickapp.ui.auth.RegisterFragment;
 import com.pickapp.ui.auth.ResetPasswordFragment;
@@ -15,5 +17,6 @@ public interface AppComponent {
     void inject(RegisterFragment registerFragment);
     void inject(LoginFragment loginFragment);
     void inject(ResetPasswordFragment resetPasswordFragment);
+    void inject(ChangePasswordFragment changePasswordFragment);
 
 }

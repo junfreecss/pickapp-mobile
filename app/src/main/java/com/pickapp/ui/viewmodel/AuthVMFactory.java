@@ -1,5 +1,6 @@
 package com.pickapp.ui.viewmodel;
 
+import com.pickapp.data.repository.AuthRepository;
 import com.pickapp.interactor.LoginUseCase;
 import com.pickapp.interactor.RegisterUseCase;
 import com.pickapp.ui.auth.AuthViewModel;
@@ -7,6 +8,9 @@ import com.pickapp.ui.auth.AuthViewModel;
 import javax.inject.Inject;
 
 public class AuthVMFactory extends VMFactory<AuthViewModel> {
+
+    @Inject
+    AuthRepository authRepository;
 
     @Inject
     RegisterUseCase registerUseCase;
@@ -24,6 +28,6 @@ public class AuthVMFactory extends VMFactory<AuthViewModel> {
 
     @Override
     protected AuthViewModel resolveVM() {
-        return new AuthViewModel(registerUseCase, loginUseCase);
+        return new AuthViewModel(authRepository, registerUseCase, loginUseCase);
     }
 }

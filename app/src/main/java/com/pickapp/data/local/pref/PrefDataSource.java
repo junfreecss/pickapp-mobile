@@ -2,6 +2,7 @@ package com.pickapp.data.local.pref;
 
 import android.content.SharedPreferences;
 
+import com.google.gson.Gson;
 import com.pickapp.app.AppConstant;
 import com.pickapp.app.PickApp;
 import com.pickapp.data.repository.sources.IPreferencesSource;
@@ -28,5 +29,16 @@ public class PrefDataSource implements IPreferencesSource {
     @Override
     public String getString(String key) {
         return preferences.getString(key, "");
+    }
+
+    @Override
+    public void setObject(String key, Object object) {
+        preferences.edit()
+                .putString(key, new Gson().toJson(object))
+                .apply();
+    }
+
+    public <T> T getObject(String key, Class<T> objClass) {
+        return new Gson().fromJson(preferences.getString(key, ""), objClass);
     }
 }
